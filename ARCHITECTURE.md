@@ -73,13 +73,14 @@ Las demás propiedades (`pl_*`, `autobus_autocars_*`…) se ignoran. Fuente ofic
 
 - Stack idéntico a `../zbe-map`: Next.js 16.4.6 (App Router, `output: 'export'`, `basePath: '/fr/zfe'`, `images.unoptimized`, `next build --webpack`), React 19.3.0, Tailwind 4.3.3 por PostCSS (`postcss.config.mjs` y `postcss-tailwind-windows.cjs` copiados de `../zbe-map`), Leaflet 1.9.4, lucide-react 0.468.0, tsx 4.23.15, TypeScript 5.9.3. Versiones exactas, sin `^`. **Sin dependencias nuevas.**
 - Estructura en la raíz, como `../zbe-map`: `app/`, `components/`, `lib/`, `public/`, `tests/`, `config/`. Alias `@/*` → raíz.
-- Pruebas: `npm test` = `tsx --test "tests/**/*.test.ts" "tests/**/*.test.tsx"`. Sin red. Un módulo se prueba con `npx tsx --test tests/<fichero>.test.ts`.
+- Pruebas: `npm test` = `node --import ./tests/support/register.mjs --test "tests/**/*.test.ts" "tests/**/*.test.tsx"`. Sin red. Un módulo se prueba con `node --import ./tests/support/register.mjs --test tests/<fichero>.test.ts`. **No se usa tsx**: el Control de aplicaciones de Windows bloquea esbuild.exe en este equipo; `tests/support/ts-loader.mjs` transpila con `typescript` y resuelve `@/` e importaciones sin extensión.
 - **Identificadores en inglés. Comentarios y documentación en español. Texto visible en francés de Francia** con *vouvoiement*, natural, no traducido palabra a palabra. Fechas `fr-FR` (`19 novembre 2026`).
 - Estilo: tokens de `../zbe-map/app/globals.css` (`bg-bg`, `bg-surface`, `bg-elevated`, `border-line`, `text-fg`, `text-muted`, `text-secondary`, `text-accent`, `bg-accent-soft`, clases `.card`, `.btn`, `.tag`, `.ad-slot`). Prohibidos los colores de paleta sueltos de Tailwind (`orange-500`) y los degradados. Los únicos colores propios son los de las vignettes (sección 4).
 - Tema claro/oscuro por `data-theme` y `localStorage['ododex-theme']`, script anti-parpadeo como en `../zbe-map/app/layout.tsx`.
 - Responsive: sin desbordamiento a 375 px; objetivos táctiles `min-h-11`. Contenedores de mapa con `isolate`; CSS de Leaflet en `@layer base`.
 - Rutas dinámicas: `generateStaticParams`, `export const dynamicParams = false`, sin `revalidate`. `sitemap.ts` con `export const dynamic = 'force-static'`.
 - Sin números mágicos; funciones cortas; errores explícitos (los de consola y scripts, en español).
+- Excepción a los identificadores en inglés: `lib/legal.ts` conserva la interfaz común de todas las webs Ododex (`getTitular`, `Titular`, `FECHA_TEXTOS_LEGALES`…) y las claves de `config/titular.json`, por paridad con el resto de la red.
 
 ## 4. Vignettes: colores
 
@@ -87,7 +88,7 @@ Tokens en `app/globals.css` dentro de `@theme` (igual que los colores `dgt-*` de
 
 | Clase | Token fondo | Hex | Texto |
 |---|---|---|---|
-| `0` | `--color-critair-0` | `#2E9E4A` (vert) | blanco |
+| `0` | `--color-critair-0` | `#2E9E4A` (vert) | `#111111` (el blanco solo da 3,4:1) |
 | `1` | `--color-critair-1` | `#7B3F98` (violet) | blanco |
 | `2` | `--color-critair-2` | `#F2C500` (jaune) | negro |
 | `3` | `--color-critair-3` | `#E87722` (orange) | negro |
