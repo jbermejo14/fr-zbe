@@ -17,6 +17,8 @@ interface CityRulesCardProps {
   areas: readonly ZfeArea[];
   /** 'yyyy-mm-dd' */
   isoDate: string;
+  /** Enlace « Voir la fiche complète » (por defecto true; la propia página de ciudad lo oculta). */
+  showFullPageLink?: boolean;
 }
 
 const RULES_CATEGORIES: readonly { category: RestrictedCategory; label: string }[] = [
@@ -24,6 +26,10 @@ const RULES_CATEGORIES: readonly { category: RestrictedCategory; label: string }
   { category: 'vul', label: 'Utilitaires' },
   { category: 'deux_rm', label: 'Deux-roues' },
 ];
+
+// Móvil (< sm): cada fila es un bloque apilado; desde sm, fila de tabla. Las clases `!` ganan al padding y borde de .guide-table.
+const RULES_ROW_CLASS = 'max-sm:block max-sm:border-b max-sm:border-line max-sm:py-2';
+const RULES_CELL_CLASS = 'max-sm:block max-sm:border-b-0! max-sm:py-1!';
 
 const RULES_LINK_CLASS = 'inline-flex min-h-11 items-center text-sm font-semibold text-accent hover:underline';
 
@@ -38,19 +44,19 @@ function RulesCategoryRows({ cityAreas, isoDate }: { cityAreas: readonly ZfeArea
       {RULES_CATEGORIES.map(({ category, label }) => {
         const rule = strictestRule(cityAreas, category, isoDate);
         return (
-          <tr key={category}>
-            <th scope="row" className="font-semibold text-fg">{label}</th>
+          <tr key={category} className={RULES_ROW_CLASS}>
+            <th scope="row" className={`${RULES_CELL_CLASS} font-semibold text-fg`}>{label}</th>
             {rule === null ? (
-              <td colSpan={2}>Aucune restriction</td>
+              <td colSpan={2} className={RULES_CELL_CLASS}>Aucune restriction</td>
             ) : (
               <>
-                <td>
+                <td className={RULES_CELL_CLASS}>
                   <span className="flex items-center gap-2">
                     <span className="text-xs text-secondary">Interdit à partir de</span>
                     <CritairBadge critair={thresholdToClass(rule.threshold)} size="sm" />
                   </span>
                 </td>
-                <td>{describeOpeningHours(rule.openingHours).text}</td>
+                <td className={RULES_CELL_CLASS}>{describeOpeningHours(rule.openingHours).text}</td>
               </>
             )}
           </tr>
@@ -86,7 +92,7 @@ function RulesUpcoming({ upcoming, titleId }: { upcoming: readonly ZfeArea[]; ti
 }
 
 /** Ficha de una ZFE: restricciones por categoría, horarios, próximas etapas y enlaces oficiales. */
-export function CityRulesCard({ city, areas, isoDate }: CityRulesCardProps) {
+export function CityRulesCard({ city, areas, isoDate, showFullPageLink = true }: CityRulesCardProps) {
   const cityAreas = areasForCity(city, areas);
   const activeAreas = cityAreas.filter((area) => isAreaActive(area, isoDate));
   const decreeUrl = activeAreas.find((area) => area.decreeUrl !== null)?.decreeUrl ?? null;
@@ -102,7 +108,7 @@ export function CityRulesCard({ city, areas, isoDate }: CityRulesCardProps) {
       ) : (
         <div className="table-responsive">
           <table className="guide-table">
-            <thead>
+            <thead className="max-sm:hidden">
               <tr>
                 <th scope="col">Véhicule</th>
                 <th scope="col">Restriction</th>
@@ -127,9 +133,11 @@ export function CityRulesCard({ city, areas, isoDate }: CityRulesCardProps) {
         <a href={city.infoUrl} target="_blank" rel="noopener noreferrer" className={RULES_LINK_CLASS}>
           Site officiel
         </a>
-        <Link href={`/${city.slug}`} className={RULES_LINK_CLASS}>
-          Voir la fiche complète
-        </Link>
+        {showFullPageLink && (
+          <Link href={`/${city.slug}`} className={RULES_LINK_CLASS}>
+            Voir la fiche complète
+          </Link>
+        )}
       </div>
     </article>
   );

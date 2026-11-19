@@ -8,3 +8,8 @@ export function formatIsoDateFr(isoDate: string): string {
   // Según la versión de ICU, el día 1 sale « 1 » en lugar de « 1er ».
   return text.replace(FORMAT_DATE_FIRST_DAY_PATTERN, '1er ');
 }
+
+/** Fecha de hoy 'yyyy-mm-dd' en hora de París (el locale en-CA da ese formato). */
+export function todayIsoInParis(now: Date): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(now);
+}

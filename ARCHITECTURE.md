@@ -331,7 +331,7 @@ Criterio de aceptación: pruebas con `tests/fixtures/aires-mini.geojson` (2-3 fe
 
 **Dependencias:** C1, C2, C3.
 
-**Ficheros:** `app/page.tsx` (sustituye al provisional), `components/CritairBadge.tsx`, `components/CritairCalculator.tsx`, `components/CritairResultCard.tsx`, `components/CityAccessList.tsx`, `components/ZfeDashboard.tsx`, `components/ZfeMap.tsx`, `components/ZfeMapLoader.tsx`, `components/CitySelector.tsx`, `components/CityRulesCard.tsx`, `components/SampleDataNotice.tsx`, `lib/use-aires.ts`, `lib/map-config.ts`, `tests/critair-badge.test.tsx`, `tests/home-ui.test.tsx`.
+**Ficheros:** `app/page.tsx` (sustituye al provisional), `components/CritairBadge.tsx`, `components/CritairCalculator.tsx`, `components/CritairResultCard.tsx`, `components/CityAccessList.tsx`, `components/ZfeDashboard.tsx`, `components/ZfeMap.tsx`, `components/ZfeMapLoader.tsx`, `components/CitySelector.tsx`, `components/CityRulesCard.tsx`, `components/SampleDataNotice.tsx`, `components/CritairCalculatorAgeFields.tsx`, `lib/use-aires.ts`, `lib/map-config.ts`, `lib/critair-form.ts`, `lib/format-date.ts`, `tests/critair-badge.test.tsx`, `tests/home-ui.test.tsx`.
 
 Referencias de aspecto (solo lectura, no copiar lógica española): `../zbe-map/components/{SplitDashboard,SpainZbeMap,EtiquetaCalculator,VehicleResultCard,CityDetailDrawer,CityInfoCard,MultiCitySelector}.tsx`, `../zbe-map/lib/map-config.ts`, `../zbe-map/lib/dgt-svg-badges.tsx`.
 
@@ -344,9 +344,9 @@ Contrato:
 - `ZfeDashboard` (cliente): estado compartido `critair`, `vehicleType`, `selectedCitySlug`. Disposición como `SplitDashboard` de ZBE: en escritorio, calculadora y resultado a la izquierda, mapa a la derecha; en móvil, apilados. Debajo del mapa, `CitySelector` y `CityRulesCard` de la ciudad elegida.
 - `use-aires.ts`: hook `useAires(): { status: 'loading' | 'ready' | 'error'; areas: ZfeArea[]; error: string | null }` que hace `fetch(assetPath(AIRES_PUBLIC_PATH))` y `parseAires`. El error se muestra (« Impossible de charger les zones : … »), no se silencia.
 - `ZfeMapLoader`: `next/dynamic` con `ssr: false` de `ZfeMap` (Leaflet no funciona en servidor).
-- `ZfeMap({ areas, critair, vehicleType, selectedCitySlug, onSelectCity, isoDate })`: Leaflet con teselas OSM (`lib/map-config.ts`, sin CARTO), vista inicial de Francia metropolitana. Cada área vigente es una capa `L.geoJSON`: verde (`--color-critair-0`) si la vignette puede circular, rojo de error del tema si no, gris (`border-line`) si no hay vignette elegida o no hay regla para la categoría. Clic en un área → `onSelectCity`. Al cambiar `selectedCitySlug`, `flyTo(center, zoom)`. Leyenda con los tres estados. El contenedor lleva `isolate` y altura fija (`h-[420px] lg:h-[560px]`).
+- `ZfeMap({ areas, critair, vehicleType, selectedCitySlug, onSelectCity, isoDate })`: Leaflet con teselas OSM (`lib/map-config.ts`, sin CARTO), vista inicial de Francia metropolitana. Cada área vigente es una capa `L.geoJSON`: verde (`--color-critair-0`) si la vignette puede circular, rojo de error del tema si no, gris (`border-line`) si no hay vignette elegida o no hay regla para la categoría. Clic en un área → `onSelectCity`. Al cambiar `selectedCitySlug` se encuadra la ciudad con `flyToBounds`. Prop opcional `focusRequest?: number`: al cambiar su valor vuelve a encuadrar la ciudad ya seleccionada. Leyenda con los tres estados. El contenedor lleva `isolate` y altura fija (`h-[420px] lg:h-[560px]`).
 - `CitySelector`: las 10 ciudades como botones-píldora (`min-h-11`, con scroll horizontal en móvil sin desbordar la página).
-- `CityRulesCard({ city, areas, isoDate })`: nombre de la ZFE, perímetro, tabla por categoría (Voitures, Utilitaires, Deux-roues) con « Interdit à partir de » + `CritairBadge sm` del umbral (o « Aucune restriction »), horario descrito, próximas etapas (`upcomingAreas`, con fecha `fr-FR`), enlaces « Arrêté » y « Site officiel », y enlace « Voir la fiche complète » a `/[ville]`.
+- `CityRulesCard({ city, areas, isoDate, showFullPageLink? })`: nombre de la ZFE, perímetro, tabla por categoría (Voitures, Utilitaires, Deux-roues) con « Interdit à partir de » + `CritairBadge sm` del umbral (o « Aucune restriction »), horario descrito, próximas etapas (`upcomingAreas`, con fecha `fr-FR`), enlaces « Arrêté » y « Site officiel », y enlace « Voir la fiche complète » a `/[ville]` (oculto con `showFullPageLink={false}`, que usa la propia página de ciudad). En móvil (< sm) cada categoría se muestra como bloque apilado; desde `sm`, como tabla.
 - `SampleDataNotice`: aviso con `role="note"` si `AIRES_DATA_IS_SAMPLE`: « Données d'exemple : les périmètres et les restrictions affichés sont indicatifs en attendant le chargement de la Base nationale des ZFE. Vérifiez toujours sur le site officiel de chaque zone. » No pinta nada si es `false`.
 - `app/page.tsx`: metadata en francés (título « ZFE et vignette Crit'Air <año> : carte des zones à faibles émissions »), JSON-LD `WebApplication`, h1 « Où pouvez-vous circuler ? Zones à faibles émissions et Crit'Air », `SampleDataNotice`, `ZfeDashboard`, `AdSlot` al final. La fecha de evaluación (`isoDate`) es la del navegador (hoy) en el cliente.
 
@@ -360,7 +360,7 @@ Criterio de aceptación: pruebas de render (`react-dom/server` `renderToStaticMa
 
 **Dependencias:** C1, C2, C3, C4 (reutiliza `CritairBadge`, `CityRulesCard`, `SampleDataNotice`, `ZfeMapLoader`).
 
-**Ficheros:** `app/[ville]/page.tsx`, `app/sitemap.ts`, `lib/zfe-areas-server.ts`, `lib/city-page.ts`, `components/CritairSummaryTable.tsx`, `components/CityFaq.tsx`, `tests/city-page.test.ts`, `tests/sitemap.test.ts`.
+**Ficheros:** `app/[ville]/page.tsx`, `app/sitemap.ts`, `lib/zfe-areas-server.ts`, `lib/city-page.ts`, `components/CritairSummaryTable.tsx`, `components/CityFaq.tsx`, `components/CityMiniMap.tsx`, `components/OtherCities.tsx`, `tests/city-page.test.ts`, `tests/sitemap.test.ts`.
 
 Contrato:
 
@@ -387,5 +387,5 @@ Criterio de aceptación: pruebas de `summaryRows` (Grand Paris de ejemplo: '2' a
 
 1. Descargar `aires.geojson` de la Base Nationale des ZFE (`AIRES_OFFICIAL_URL`) y guardarlo como `public/datos/aires.geojson`.
 2. Ejecutar `npm test`: la prueba de C3 que exige un área vigente por ciudad falla si un SIREN de `data/zfe-cities.json` no coincide con los ids oficiales. Corregir el SIREN, no la prueba.
-3. Poner `AIRES_DATA_IS_SAMPLE = false` en `lib/zfe-source.ts`.
+3. Poner `AIRES_DATA_IS_SAMPLE = false` en `lib/zfe-source.ts`. Mientras sea `true`, la portada y las páginas de ciudad llevan `noindex, follow` (`sampleDataRobots`); al ponerlo a `false` desaparece el noindex y las páginas pasan a ser indexables. Antes de hacerlo, revisar los textos generados (FAQ, descriptions de `lib/city-page.ts`) contra los datos oficiales.
 4. Revisar en pantalla las 10 fichas contra el sitio oficial de cada ZFE.

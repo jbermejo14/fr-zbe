@@ -4,6 +4,7 @@ import { SampleDataNotice } from '@/components/SampleDataNotice';
 import { ZfeDashboard } from '@/components/ZfeDashboard';
 import { SEO_CURRENT_YEAR, truncateMetaDescription } from '@/lib/seo';
 import { absoluteUrl, SECTION_NAME, SITE_NAME } from '@/lib/site';
+import { AIRES_DATA_IS_SAMPLE, sampleDataRobots } from '@/lib/zfe-source';
 
 const HOME_URL = absoluteUrl('/');
 const HOME_TITLE = `ZFE et vignette Crit'Air ${SEO_CURRENT_YEAR} : carte des zones à faibles émissions`;
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   title: HOME_TITLE,
   description: HOME_DESCRIPTION,
   alternates: { canonical: HOME_URL },
+  robots: sampleDataRobots(AIRES_DATA_IS_SAMPLE),
   openGraph: {
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
