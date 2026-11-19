@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "111111111-ZFE-001",
+        "date_debut": "2020-01-01",
+        "date_fin": "2024-12-31",
+        "vp_critair": "V3",
+        "vp_horaires": "24/7",
+        "vul_critair": null,
+        "vul_horaires": null,
+        "pl_critair": "V2",
+        "pl_horaires": "24/7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.0, 48.0], [2.1, 48.0], [2.1, 48.1], [2.0, 48.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "111111111-ZFE-002",
+        "date_debut": "2025-01-01",
+        "date_fin": null,
+        "vp_critair": "V4",
+        "vp_horaires": "Mo-Fr 08:00-20:00; PH off",
+        "vul_critair": "V2",
+        "vul_horaires": "24/7",
+        "url_arrete": "https://example.org/arrete",
+        "url_site_information": "https://example.org/info"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [[[[2.0, 48.0], [2.1, 48.0], [2.1, 48.1], [2.0, 48.0]]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "222222222-ZFE-001",
+        "date_debut": "2030-06-01",
+        "date_fin": null,
+        "vp_critair": "EL",
+        "vp_horaires": "24/7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[5.0, 45.0], [5.1, 45.0], [5.1, 45.1], [5.0, 45.0]]]
+      }
+    }
+  ]
+}

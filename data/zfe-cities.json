@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "grand-paris",
+    "name": "Grand Paris",
+    "zoneName": "ZFE-m du Grand Paris",
+    "authority": "Métropole du Grand Paris",
+    "siren": "200054781",
+    "center": [48.8566, 2.3522],
+    "zoom": 11,
+    "perimeterLabel": "Intérieur de l'A86 (A86 exclue)",
+    "infoUrl": "https://www.metropolegrandparis.fr/"
+  },
+  {
+    "slug": "lyon",
+    "name": "Lyon",
+    "zoneName": "ZFE de la Métropole de Lyon",
+    "authority": "Métropole de Lyon",
+    "siren": "200046977",
+    "center": [45.764, 4.8357],
+    "zoom": 12,
+    "perimeterLabel": "Lyon, Villeurbanne et communes centrales de la Métropole",
+    "infoUrl": "https://www.grandlyon.com/"
+  },
+  {
+    "slug": "marseille",
+    "name": "Marseille",
+    "zoneName": "ZFE d'Aix-Marseille-Provence",
+    "authority": "Métropole Aix-Marseille-Provence",
+    "siren": "200054807",
+    "center": [43.2965, 5.3698],
+    "zoom": 12,
+    "perimeterLabel": "Centre de Marseille, à l'intérieur du périmètre de la ZFE",
+    "infoUrl": "https://www.ampmetropole.fr/"
+  },
+  {
+    "slug": "toulouse",
+    "name": "Toulouse",
+    "zoneName": "ZFE de Toulouse Métropole",
+    "authority": "Toulouse Métropole",
+    "siren": "243100518",
+    "center": [43.6047, 1.4442],
+    "zoom": 12,
+    "perimeterLabel": "Intérieur du périphérique toulousain",
+    "infoUrl": "https://www.toulouse-metropole.fr/"
+  },
+  {
+    "slug": "nice",
+    "name": "Nice",
+    "zoneName": "ZFE de Nice Côte d'Azur",
+    "authority": "Métropole Nice Côte d'Azur",
+    "siren": "200030195",
+    "center": [43.7102, 7.262],
+    "zoom": 12,
+    "perimeterLabel": "Centre-ville de Nice et plaine du Var",
+    "infoUrl": "https://www.nicecotedazur.org/"
+  },
+  {
+    "slug": "strasbourg",
+    "name": "Strasbourg",
+    "zoneName": "ZFE de l'Eurométropole de Strasbourg",
+    "authority": "Eurométropole de Strasbourg",
+    "siren": "246700488",
+    "center": [48.5734, 7.7521],
+    "zoom": 12,
+    "perimeterLabel": "Strasbourg et communes limitrophes",
+    "infoUrl": "https://www.strasbourg.eu/"
+  },
+  {
+    "slug": "grenoble",
+    "name": "Grenoble",
+    "zoneName": "ZFE de Grenoble-Alpes Métropole",
+    "authority": "Grenoble-Alpes Métropole",
+    "siren": "200040715",
+    "center": [45.1885, 5.7245],
+    "zoom": 12,
+    "perimeterLabel": "Grenoble et communes de la cuvette grenobloise",
+    "infoUrl": "https://www.grenoblealpesmetropole.fr/"
+  },
+  {
+    "slug": "montpellier",
+    "name": "Montpellier",
+    "zoneName": "ZFE de Montpellier Méditerranée Métropole",
+    "authority": "Montpellier Méditerranée Métropole",
+    "siren": "243400017",
+    "center": [43.6108, 3.8767],
+    "zoom": 12,
+    "perimeterLabel": "Centre de Montpellier, à l'intérieur de la ZFE",
+    "infoUrl": "https://www.montpellier3m.fr/"
+  },
+  {
+    "slug": "rouen",
+    "name": "Rouen",
+    "zoneName": "ZFE de Rouen Normandie",
+    "authority": "Métropole Rouen Normandie",
+    "siren": "200023414",
+    "center": [49.4432, 1.0993],
+    "zoom": 12,
+    "perimeterLabel": "Rouen et communes de la boucle urbaine",
+    "infoUrl": "https://metropole-rouen-normandie.fr/"
+  },
+  {
+    "slug": "reims",
+    "name": "Reims",
+    "zoneName": "ZFE du Grand Reims",
+    "authority": "Communauté urbaine du Grand Reims",
+    "siren": "200067213",
+    "center": [49.2583, 4.0317],
+    "zoom": 12,
+    "perimeterLabel": "Centre de Reims",
+    "infoUrl": "https://www.grandreims.fr/"
+  }
+]

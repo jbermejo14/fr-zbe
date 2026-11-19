@@ -1,0 +1,643 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200054781-ZFE-001",
+    "date_debut": "2019-07-01",
+    "date_fin": null,
+    "vp_critair": "V3",
+    "vp_horaires": "Mo-Fr 08:00-20:00; PH off",
+    "vul_critair": "V3",
+    "vul_horaires": "Mo-Fr 08:00-20:00; PH off",
+    "deux_rm_critair": "V3",
+    "deux_rm_horaires": "Mo-Fr 08:00-20:00; PH off",
+    "url_site_information": "https://www.metropolegrandparis.fr/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       2.54196,
+       48.90831
+      ],
+      [
+       2.4308,
+       48.98145
+      ],
+      [
+       2.2736,
+       48.98145
+      ],
+      [
+       2.16244,
+       48.90831
+      ],
+      [
+       2.16244,
+       48.80489
+      ],
+      [
+       2.2736,
+       48.73175
+      ],
+      [
+       2.4308,
+       48.73175
+      ],
+      [
+       2.54196,
+       48.80489
+      ],
+      [
+       2.54196,
+       48.90831
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200046977-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V3",
+    "vp_horaires": "24/7",
+    "vul_critair": "V3",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.grandlyon.com/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       4.93115,
+       45.79158
+      ],
+      [
+       4.87524,
+       45.83059
+      ],
+      [
+       4.79616,
+       45.83059
+      ],
+      [
+       4.74025,
+       45.79158
+      ],
+      [
+       4.74025,
+       45.73642
+      ],
+      [
+       4.79616,
+       45.69741
+      ],
+      [
+       4.87524,
+       45.69741
+      ],
+      [
+       4.93115,
+       45.73642
+      ],
+      [
+       4.93115,
+       45.79158
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200046977-ZFE-002",
+    "date_debut": "2028-01-01",
+    "date_fin": null,
+    "vp_critair": "V2",
+    "vp_horaires": "24/7",
+    "vul_critair": "V2",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.grandlyon.com/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       4.93115,
+       45.79158
+      ],
+      [
+       4.87524,
+       45.83059
+      ],
+      [
+       4.79616,
+       45.83059
+      ],
+      [
+       4.74025,
+       45.79158
+      ],
+      [
+       4.74025,
+       45.73642
+      ],
+      [
+       4.79616,
+       45.69741
+      ],
+      [
+       4.87524,
+       45.69741
+      ],
+      [
+       4.93115,
+       45.73642
+      ],
+      [
+       4.93115,
+       45.79158
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200054807-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V4",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.ampmetropole.fr/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       5.46129,
+       43.32408
+      ],
+      [
+       5.4077,
+       43.36309
+      ],
+      [
+       5.3319,
+       43.36309
+      ],
+      [
+       5.27831,
+       43.32408
+      ],
+      [
+       5.27831,
+       43.26892
+      ],
+      [
+       5.3319,
+       43.22991
+      ],
+      [
+       5.4077,
+       43.22991
+      ],
+      [
+       5.46129,
+       43.26892
+      ],
+      [
+       5.46129,
+       43.32408
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "243100518-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V4",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.toulouse-metropole.fr/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       1.53615,
+       43.63228
+      ],
+      [
+       1.48229,
+       43.67129
+      ],
+      [
+       1.40611,
+       43.67129
+      ],
+      [
+       1.35225,
+       43.63228
+      ],
+      [
+       1.35225,
+       43.57712
+      ],
+      [
+       1.40611,
+       43.53811
+      ],
+      [
+       1.48229,
+       43.53811
+      ],
+      [
+       1.53615,
+       43.57712
+      ],
+      [
+       1.53615,
+       43.63228
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200030195-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V4",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.nicecotedazur.org/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       7.35412,
+       43.73778
+      ],
+      [
+       7.30016,
+       43.77679
+      ],
+      [
+       7.22384,
+       43.77679
+      ],
+      [
+       7.16988,
+       43.73778
+      ],
+      [
+       7.16988,
+       43.68262
+      ],
+      [
+       7.22384,
+       43.64361
+      ],
+      [
+       7.30016,
+       43.64361
+      ],
+      [
+       7.35412,
+       43.68262
+      ],
+      [
+       7.35412,
+       43.73778
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "246700488-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V4",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.strasbourg.eu/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       7.85273,
+       48.60098
+      ],
+      [
+       7.79378,
+       48.63999
+      ],
+      [
+       7.71042,
+       48.63999
+      ],
+      [
+       7.65147,
+       48.60098
+      ],
+      [
+       7.65147,
+       48.54582
+      ],
+      [
+       7.71042,
+       48.50681
+      ],
+      [
+       7.79378,
+       48.50681
+      ],
+      [
+       7.85273,
+       48.54582
+      ],
+      [
+       7.85273,
+       48.60098
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200040715-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V3",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.grenoblealpesmetropole.fr/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       5.81898,
+       45.21608
+      ],
+      [
+       5.76363,
+       45.25509
+      ],
+      [
+       5.68537,
+       45.25509
+      ],
+      [
+       5.63002,
+       45.21608
+      ],
+      [
+       5.63002,
+       45.16092
+      ],
+      [
+       5.68537,
+       45.12191
+      ],
+      [
+       5.76363,
+       45.12191
+      ],
+      [
+       5.81898,
+       45.16092
+      ],
+      [
+       5.81898,
+       45.21608
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "243400017-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V4",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.montpellier3m.fr/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       3.96866,
+       43.63838
+      ],
+      [
+       3.91479,
+       43.67739
+      ],
+      [
+       3.83861,
+       43.67739
+      ],
+      [
+       3.78474,
+       43.63838
+      ],
+      [
+       3.78474,
+       43.58322
+      ],
+      [
+       3.83861,
+       43.54421
+      ],
+      [
+       3.91479,
+       43.54421
+      ],
+      [
+       3.96866,
+       43.58322
+      ],
+      [
+       3.96866,
+       43.63838
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200023414-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V4",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://metropole-rouen-normandie.fr/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       1.20171,
+       49.47078
+      ],
+      [
+       1.14172,
+       49.50979
+      ],
+      [
+       1.05688,
+       49.50979
+      ],
+      [
+       0.99689,
+       49.47078
+      ],
+      [
+       0.99689,
+       49.41562
+      ],
+      [
+       1.05688,
+       49.37661
+      ],
+      [
+       1.14172,
+       49.37661
+      ],
+      [
+       1.20171,
+       49.41562
+      ],
+      [
+       1.20171,
+       49.47078
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "200067213-ZFE-001",
+    "date_debut": "2022-01-01",
+    "date_fin": null,
+    "vp_critair": "V4",
+    "vp_horaires": "24/7",
+    "vul_critair": "V4",
+    "vul_horaires": "24/7",
+    "deux_rm_critair": null,
+    "deux_rm_horaires": null,
+    "url_site_information": "https://www.grandreims.fr/"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       4.13372,
+       49.28588
+      ],
+      [
+       4.07396,
+       49.32489
+      ],
+      [
+       3.98944,
+       49.32489
+      ],
+      [
+       3.92968,
+       49.28588
+      ],
+      [
+       3.92968,
+       49.23072
+      ],
+      [
+       3.98944,
+       49.19171
+      ],
+      [
+       4.07396,
+       49.19171
+      ],
+      [
+       4.13372,
+       49.23072
+      ],
+      [
+       4.13372,
+       49.28588
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}
