@@ -4,7 +4,7 @@ import { describe, it } from 'node:test';
 import { CRITAIR_ORDER } from '../lib/critair';
 import { parseAires, type ZfeArea } from '../lib/zfe-areas';
 import { ZFE_CITIES, areasForCity, findCityBySlug } from '../lib/zfe-cities';
-import { evaluateCities, isAllowed, strictestRule, upcomingAreas } from '../lib/zfe-rules';
+import { evaluateCities, isAllowed, strictestRule, thresholdToClass, upcomingAreas } from '../lib/zfe-rules';
 
 const REFERENCE_DATE = '2026-11-19';
 const FIXTURE_URL = new URL('./fixtures/aires-mini.geojson', import.meta.url);
@@ -97,5 +97,15 @@ describe('evaluateCities con aires.geojson de ejemplo', () => {
     assert.equal(strictestRule(areasForCity(lyon, areas), 'vp', REFERENCE_DATE)?.threshold, 'V3');
     assert.equal(strictestRule(areasForCity(lyon, areas), 'vp', '2028-01-01')?.threshold, 'V2');
     assert.equal(upcomingAreas(areasForCity(lyon, areas), REFERENCE_DATE).length, 1);
+  });
+});
+
+describe('thresholdToClass', () => {
+  it('EL es la clase 0 y el resto conserva su número', () => {
+    assert.equal(thresholdToClass('EL'), '0');
+    assert.equal(thresholdToClass('V1'), '1');
+    assert.equal(thresholdToClass('V3'), '3');
+    assert.equal(thresholdToClass('V5'), '5');
+    assert.equal(thresholdToClass('NC'), 'NC');
   });
 });

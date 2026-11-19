@@ -94,7 +94,9 @@ Tokens en `app/globals.css` dentro de `@theme` (igual que los colores `dgt-*` de
 | `3` | `--color-critair-3` | `#E87722` (orange) | negro |
 | `4` | `--color-critair-4` | `#7A1F2B` (bordeaux) | blanco |
 | `5` | `--color-critair-5` | `#6E6E6E` (gris) | blanco |
-| `NC` | sin vignette | borde discontinuo `border-line` | `text-fg` |
+| `NC` | sin vignette | borde discontinuo `border-secondary` (`border-line` apenas se ve) | `text-fg` |
+
+En el mapa, el estado neutro (sin vignette o sin regla) usa `--text-secondary` para el trazo y `--border-hover` para el relleno: `border-line` no se distingue sobre las teselas de OSM.
 
 ## 5. Módulos
 

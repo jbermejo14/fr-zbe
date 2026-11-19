@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 import { isAreaActive, parseAires } from '../lib/zfe-areas';
-import { ZFE_CITIES, areasForCity, findCityBySlug } from '../lib/zfe-cities';
+import { ZFE_CITIES, areasForCity, cityForAreaId, findCityBySlug } from '../lib/zfe-cities';
 
 const REFERENCE_DATE = '2026-11-19';
 const EXPECTED_CITY_COUNT = 10;
@@ -60,5 +60,23 @@ describe('areasForCity con aires.geojson de ejemplo', () => {
       const expected = city.slug === 'lyon' ? 2 : 1;
       assert.equal(areasForCity(city, areas).length, expected, city.slug);
     }
+  });
+});
+
+describe('cityForAreaId', () => {
+  it('asigna cada área de ejemplo a la ciudad que la contiene', () => {
+    const areas = loadSampleAreas();
+    for (const city of ZFE_CITIES) {
+      for (const area of areasForCity(city, areas)) {
+        assert.equal(cityForAreaId(area.id)?.slug, city.slug);
+      }
+    }
+  });
+
+  it('exige el guion tras el SIREN y devuelve null si no hay ciudad', () => {
+    const [first] = ZFE_CITIES;
+    assert.equal(cityForAreaId(`${first.siren}-ZFE-001`)?.slug, first.slug);
+    assert.equal(cityForAreaId(first.siren), null);
+    assert.equal(cityForAreaId('000000000-ZFE-001'), null);
   });
 });

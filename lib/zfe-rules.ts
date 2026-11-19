@@ -27,6 +27,11 @@ const CLASS_BY_THRESHOLD: Record<CritairThreshold, CritairClass> = {
   NC: 'NC',
 };
 
+/** Clase Crit'Air equivalente a un umbral de la Base nationale (EL = clase 0). */
+export function thresholdToClass(threshold: CritairThreshold): CritairClass {
+  return CLASS_BY_THRESHOLD[threshold];
+}
+
 function rulesRank(critair: CritairClass): number {
   return CRITAIR_ORDER.indexOf(critair);
 }
