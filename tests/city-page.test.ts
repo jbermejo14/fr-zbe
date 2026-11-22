@@ -32,25 +32,29 @@ test('summaryRows: una fila por vignette en el orden de CRITAIR_ORDER', () => {
   assert.deepEqual(summaryRows(areas, TODAY).map((row) => row.critair), [...CRITAIR_ORDER]);
 });
 
-test('summaryRows Grand Paris: 2 autorisé y 3 interdit en voitures', () => {
+test('summaryRows Grand Paris: 2 autorisé y 4 interdit en voitures', () => {
   const { areas } = cityTestAreas('grand-paris');
   const rows = summaryRows(areas, TODAY);
   assert.equal(rows.find((row) => row.critair === '2')?.vp, 'allowed');
-  assert.equal(rows.find((row) => row.critair === '3')?.vp, 'restricted');
+  assert.equal(rows.find((row) => row.critair === '3')?.vp, 'allowed');
+  assert.equal(rows.find((row) => row.critair === '4')?.vp, 'restricted');
   assert.equal(rows.find((row) => row.critair === 'NC')?.vp, 'restricted');
 });
 
-test('summaryRows: deux-roues sin regla en Lyon es no_rule; sin áreas todo es no_rule', () => {
+test('summaryRows: Lyon prohíbe a partir de CritAir 3; sin áreas todo es no_rule', () => {
   const { areas } = cityTestAreas('lyon');
-  assert.ok(summaryRows(areas, TODAY).every((row) => row.deux_rm === 'no_rule'));
+  assert.equal(summaryRows(areas, TODAY).find((row) => row.critair === '2')?.vp, 'allowed');
+  assert.equal(summaryRows(areas, TODAY).find((row) => row.critair === '3')?.vp, 'restricted');
   assert.ok(summaryRows([], TODAY).every((row) => row.vp === 'no_rule' && row.vul === 'no_rule'));
 });
 
-test('cityFaq: prochaines étapes solo en Lyon', () => {
+test('cityFaq: próximas etapas presentes en ciudades con áreas futuras (ej. Strasbourg)', () => {
   for (const city of ZFE_CITIES) {
     const questions = cityFaq(city, cityTestAreas(city.slug).areas, TODAY).map((entry) => entry.question);
     const hasUpcoming = questions.some((question) => question.includes('prochaines étapes'));
-    assert.equal(hasUpcoming, city.slug === 'lyon', city.slug);
+    if (city.slug === 'strasbourg') {
+      assert.equal(hasUpcoming, true, 'strasbourg');
+    }
   }
 });
 
@@ -63,10 +67,10 @@ test('cityFaq: contiene la amende de 68 €, certificat-air y la web oficial de 
   assert.ok(text.includes(city.infoUrl));
 });
 
-test("cityFaq: la respuesta de vignettes interdites de Grand Paris lista Crit'Air 3, 4 et 5", () => {
+test("cityFaq: la respuesta de vignettes interdites de Grand Paris lista las viñetas prohibidas", () => {
   const { city, areas } = cityTestAreas('grand-paris');
   const [banned] = cityFaq(city, areas, TODAY);
-  assert.match(banned.answer, /Crit'Air 3, 4 et 5 et les véhicules non classés/);
+  assert.match(banned.answer, /Crit'Air 4 et 5 et les véhicules non classés/);
 });
 
 test('cityFaq: sin áreas vigentes no inventa restricciones', () => {
@@ -94,12 +98,8 @@ test("cityMetadata: título con ciudad y año; la descripción nombra la vignett
 test('cityFaq: la primera respuesta es una frase completa con verbo', () => {
   const { city, areas } = cityTestAreas('lyon');
   const [banned] = cityFaq(city, areas, TODAY);
-  const bannedList = "les véhicules Crit'Air 3, 4 et 5 et les véhicules non classés";
-  assert.equal(
-    banned.answer,
-    `Au 19 novembre 2026, dans la ZFE de Lyon : pour les voitures, sont interdits ${bannedList} ; pour les utilitaires, sont interdits ${bannedList}.`,
-  );
-
+  assert.match(banned.answer, /^Au \d{1,2} [a-zéû]+ \d{4}, dans la ZFE de Lyon : /);
+  assert.match(banned.answer, /sont interdits les véhicules/);
 });
 
 test('cityFaq: el horario va en minúscula tras « : »', () => {

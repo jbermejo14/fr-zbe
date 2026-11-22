@@ -33,7 +33,7 @@ export function findCityBySlug(slug: string): ZfeCity | null {
 
 /** Criterio único de pertenencia: el id oficial del área empieza por "<SIREN del EPCI>-". */
 function citiesAreaBelongsTo(areaId: string, city: ZfeCity): boolean {
-  return areaId.startsWith(`${city.siren}-`);
+  return areaId.startsWith(`${city.siren}-`) || areaId.startsWith(`${city.siren}0-`);
 }
 
 /** Ciudad a la que pertenece un área (su id empieza por el SIREN de la ciudad), o null. */

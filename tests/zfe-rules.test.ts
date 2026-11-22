@@ -8,7 +8,7 @@ import { evaluateCities, isAllowed, strictestRule, thresholdToClass, upcomingAre
 
 const REFERENCE_DATE = '2026-11-19';
 const FIXTURE_URL = new URL('./fixtures/aires-mini.geojson', import.meta.url);
-const SAMPLE_URL = new URL('../public/datos/aires.geojson', import.meta.url);
+const SAMPLE_URL = new URL('./fixtures/aires-sample.geojson', import.meta.url);
 
 function loadAreas(url: URL): ZfeArea[] {
   return parseAires(JSON.parse(readFileSync(url, 'utf8')));

@@ -4,7 +4,7 @@
     "name": "Grand Paris",
     "zoneName": "ZFE-m du Grand Paris",
     "authority": "Métropole du Grand Paris",
-    "siren": "200054781",
+    "siren": "217500016",
     "center": [48.8566, 2.3522],
     "zoom": 11,
     "perimeterLabel": "Intérieur de l'A86 (A86 exclue)",
@@ -44,15 +44,15 @@
     "infoUrl": "https://www.toulouse-metropole.fr/"
   },
   {
-    "slug": "nice",
-    "name": "Nice",
-    "zoneName": "ZFE de Nice Côte d'Azur",
-    "authority": "Métropole Nice Côte d'Azur",
-    "siren": "200030195",
-    "center": [43.7102, 7.262],
+    "slug": "bordeaux",
+    "name": "Bordeaux",
+    "zoneName": "ZFE de Bordeaux Métropole",
+    "authority": "Bordeaux Métropole",
+    "siren": "243300316",
+    "center": [44.8378, -0.5792],
     "zoom": 12,
-    "perimeterLabel": "Centre-ville de Nice et plaine du Var",
-    "infoUrl": "https://www.nicecotedazur.org/"
+    "perimeterLabel": "Intérieur de la rocade bordelaise (A630 et N230)",
+    "infoUrl": "https://www.bordeaux-metropole.fr/"
   },
   {
     "slug": "strasbourg",

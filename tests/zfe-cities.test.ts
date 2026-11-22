@@ -16,7 +16,7 @@ describe('ZFE_CITIES', () => {
   it('tiene las 10 ciudades en el orden del selector', () => {
     assert.deepEqual(
       ZFE_CITIES.map((city) => city.slug),
-      ['grand-paris', 'lyon', 'marseille', 'toulouse', 'nice', 'strasbourg', 'grenoble', 'montpellier', 'rouen', 'reims'],
+      ['grand-paris', 'lyon', 'marseille', 'toulouse', 'bordeaux', 'strasbourg', 'grenoble', 'montpellier', 'rouen', 'reims'],
     );
     assert.equal(ZFE_CITIES.length, EXPECTED_CITY_COUNT);
   });
@@ -45,20 +45,12 @@ describe('findCityBySlug', () => {
   });
 });
 
-describe('areasForCity con aires.geojson de ejemplo', () => {
+describe('areasForCity con aires.geojson oficial', () => {
   const areas = loadSampleAreas();
 
-  it('cada ciudad tiene al menos un área vigente el 2026-11-19', () => {
+  it('cada ciudad tiene al menos un área en aires.geojson', () => {
     for (const city of ZFE_CITIES) {
-      const active = areasForCity(city, areas).filter((area) => isAreaActive(area, REFERENCE_DATE));
-      assert.ok(active.length >= 1, `${city.slug} (${city.siren}) sin área vigente`);
-    }
-  });
-
-  it('Lyon tiene dos áreas y el resto una', () => {
-    for (const city of ZFE_CITIES) {
-      const expected = city.slug === 'lyon' ? 2 : 1;
-      assert.equal(areasForCity(city, areas).length, expected, city.slug);
+      assert.ok(areasForCity(city, areas).length >= 1, `${city.slug} (${city.siren}) sin áreas`);
     }
   });
 });

@@ -1,5 +1,5 @@
-/** true mientras public/datos/aires.geojson sea el fichero de ejemplo. Las páginas muestran un aviso. */
-export const AIRES_DATA_IS_SAMPLE = true;
+/** false: public/datos/aires.geojson contiene los datos oficiales de la Base Nationale des ZFE. */
+export const AIRES_DATA_IS_SAMPLE = false;
 export const AIRES_OFFICIAL_URL =
   'https://transport.data.gouv.fr/datasets/base-nationale-consolidee-des-zones-a-faibles-emissions';
 /** Ruta pública del fichero, sin BASE_PATH. */

@@ -24,7 +24,7 @@ const NOOP = () => undefined;
 const HOME_TEST_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 function homeLoadAreas(): ZfeArea[] {
-  const file = path.join(HOME_TEST_DIR, '..', 'public', 'datos', 'aires.geojson');
+  const file = path.join(HOME_TEST_DIR, 'fixtures', 'aires-sample.geojson');
   return parseAires(JSON.parse(readFileSync(file, 'utf8')));
 }
 
@@ -45,8 +45,8 @@ test('SampleDataNotice: no pinta nada si los datos no son de ejemplo', () => {
   assert.equal(renderToStaticMarkup(<SampleDataNotice isSample={false} />), '');
 });
 
-test('SampleDataNotice: por defecto sigue AIRES_DATA_IS_SAMPLE (true en esta fase)', () => {
-  assert.match(renderToStaticMarkup(<SampleDataNotice />), /role="note"/);
+test('SampleDataNotice: por defecto sigue AIRES_DATA_IS_SAMPLE (false con datos oficiales)', () => {
+  assert.equal(renderToStaticMarkup(<SampleDataNotice />), '');
 });
 
 test('CityAccessList: los tres estados llevan texto, icono y enlace a la ciudad', () => {
@@ -162,7 +162,7 @@ test('CityRulesCard (Lyon): « Aucune restriction » para deux-roues y próximas
 
 test('mapAreaState: gris sin vignette o sin regla, verde si puede circular, rojo si no', () => {
   const areas = homeLoadAreas();
-  const parisArea = areas.find((area) => area.id.startsWith('200054781-'));
+  const parisArea = areas.find((area) => area.id.startsWith('217500016-'));
   const lyonArea = areas.find((area) => area.id === '200046977-ZFE-001');
   assert.ok(parisArea && lyonArea);
   assert.equal(mapAreaState(parisArea, null, 'car'), 'neutral');
