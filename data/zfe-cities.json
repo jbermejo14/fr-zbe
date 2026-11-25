@@ -2,6 +2,7 @@
   {
     "slug": "grand-paris",
     "name": "Grand Paris",
+    "ofName": "du Grand Paris",
     "zoneName": "ZFE-m du Grand Paris",
     "authority": "Métropole du Grand Paris",
     "siren": "217500016",
@@ -13,6 +14,7 @@
   {
     "slug": "lyon",
     "name": "Lyon",
+    "ofName": "de Lyon",
     "zoneName": "ZFE de la Métropole de Lyon",
     "authority": "Métropole de Lyon",
     "siren": "200046977",
@@ -24,6 +26,7 @@
   {
     "slug": "marseille",
     "name": "Marseille",
+    "ofName": "de Marseille",
     "zoneName": "ZFE d'Aix-Marseille-Provence",
     "authority": "Métropole Aix-Marseille-Provence",
     "siren": "200054807",
@@ -35,6 +38,7 @@
   {
     "slug": "toulouse",
     "name": "Toulouse",
+    "ofName": "de Toulouse",
     "zoneName": "ZFE de Toulouse Métropole",
     "authority": "Toulouse Métropole",
     "siren": "243100518",
@@ -46,6 +50,7 @@
   {
     "slug": "bordeaux",
     "name": "Bordeaux",
+    "ofName": "de Bordeaux",
     "zoneName": "ZFE de Bordeaux Métropole",
     "authority": "Bordeaux Métropole",
     "siren": "243300316",
@@ -57,6 +62,7 @@
   {
     "slug": "strasbourg",
     "name": "Strasbourg",
+    "ofName": "de Strasbourg",
     "zoneName": "ZFE de l'Eurométropole de Strasbourg",
     "authority": "Eurométropole de Strasbourg",
     "siren": "246700488",
@@ -68,6 +74,7 @@
   {
     "slug": "grenoble",
     "name": "Grenoble",
+    "ofName": "de Grenoble",
     "zoneName": "ZFE de Grenoble-Alpes Métropole",
     "authority": "Grenoble-Alpes Métropole",
     "siren": "200040715",
@@ -79,6 +86,7 @@
   {
     "slug": "montpellier",
     "name": "Montpellier",
+    "ofName": "de Montpellier",
     "zoneName": "ZFE de Montpellier Méditerranée Métropole",
     "authority": "Montpellier Méditerranée Métropole",
     "siren": "243400017",
@@ -90,6 +98,7 @@
   {
     "slug": "rouen",
     "name": "Rouen",
+    "ofName": "de Rouen",
     "zoneName": "ZFE de Rouen Normandie",
     "authority": "Métropole Rouen Normandie",
     "siren": "200023414",
@@ -101,6 +110,7 @@
   {
     "slug": "reims",
     "name": "Reims",
+    "ofName": "de Reims",
     "zoneName": "ZFE du Grand Reims",
     "authority": "Communauté urbaine du Grand Reims",
     "siren": "200067213",

@@ -6,6 +6,8 @@ export interface ZfeCity {
   slug: string;
   /** 'Grand Paris' */
   name: string;
+  /** Nombre precedido de « de » para frases: 'du Grand Paris', 'de Lyon'. */
+  ofName: string;
   /** 'ZFE-m du Grand Paris' */
   zoneName: string;
   /** 'Métropole du Grand Paris' */

@@ -95,8 +95,8 @@ function cityPageBannedAnswer(city: ZfeCity, cityAreas: readonly ZfeArea[], isoD
     if (rule === null) return [];
     return [`pour ${plural}, sont interdits ${cityPageBannedText(rule.threshold)}`];
   });
-  if (sentences.length === 0) return `Dans la ZFE de ${city.name}, ${CITY_PAGE_NO_RESTRICTION}`;
-  return `Au ${formatIsoDateFr(isoDate)}, dans la ZFE de ${city.name} : ${sentences.join(' ; ')}.`;
+  if (sentences.length === 0) return `Dans la ZFE ${city.ofName}, ${CITY_PAGE_NO_RESTRICTION}`;
+  return `Au ${formatIsoDateFr(isoDate)}, dans la ZFE ${city.ofName} : ${sentences.join(' ; ')}.`;
 }
 
 function cityPageLowerFirst(text: string): string {
@@ -109,7 +109,7 @@ function cityPageHoursAnswer(city: ZfeCity, cityAreas: readonly ZfeArea[], isoDa
     if (rule === null) return [];
     return [`${title} : ${cityPageLowerFirst(describeOpeningHours(rule.openingHours).text)}.`];
   });
-  if (sentences.length === 0) return `Dans la ZFE de ${city.name}, ${CITY_PAGE_NO_RESTRICTION}`;
+  if (sentences.length === 0) return `Dans la ZFE ${city.ofName}, ${CITY_PAGE_NO_RESTRICTION}`;
   return sentences.join(' ');
 }
 
@@ -133,17 +133,17 @@ function cityPageUpcomingAnswer(cityAreas: readonly ZfeArea[], isoDate: string):
 export function cityFaq(city: ZfeCity, cityAreas: readonly ZfeArea[], isoDate: string): FaqEntry[] {
   const entries: FaqEntry[] = [
     {
-      question: `Quelles vignettes Crit'Air sont interdites dans la ZFE de ${city.name} ?`,
+      question: `Quelles vignettes Crit'Air sont interdites dans la ZFE ${city.ofName} ?`,
       answer: cityPageBannedAnswer(city, cityAreas, isoDate),
     },
     {
-      question: `Quels sont les horaires de la ZFE de ${city.name} ?`,
+      question: `Quels sont les horaires de la ZFE ${city.ofName} ?`,
       answer: cityPageHoursAnswer(city, cityAreas, isoDate),
     },
   ];
   if (upcomingAreas(cityAreas, isoDate).length > 0) {
     entries.push({
-      question: `Quelles sont les prochaines étapes de la ZFE de ${city.name} ?`,
+      question: `Quelles sont les prochaines étapes de la ZFE ${city.ofName} ?`,
       answer: cityPageUpcomingAnswer(cityAreas, isoDate),
     });
   }
@@ -154,7 +154,7 @@ export function cityFaq(city: ZfeCity, cityAreas: readonly ZfeArea[], isoDate: s
     },
     {
       question: 'Existe-t-il des dérogations ?',
-      answer: `Oui, certaines dérogations existent (petits rouleurs, véhicules de collection, carte mobilité inclusion, etc.). Elles varient d'une zone à l'autre : consultez le site officiel de la ZFE de ${city.name} (${city.infoUrl}).`,
+      answer: `Oui, certaines dérogations existent (petits rouleurs, véhicules de collection, carte mobilité inclusion, etc.). Elles varient d'une zone à l'autre : consultez le site officiel de la ZFE ${city.ofName} (${city.infoUrl}).`,
     },
     {
       question: "Quelle amende en cas d'infraction ?",
@@ -174,7 +174,7 @@ export function cityMetadata(city: ZfeCity, cityAreas: readonly ZfeArea[], isoDa
   return {
     title: `ZFE ${city.name} ${isoDate.slice(0, CITY_PAGE_YEAR_LENGTH)} : Crit'Air interdits, horaires`,
     description: truncateMetaDescription(
-      `ZFE de ${city.name} : ${banned}. Horaires, amende de ${CITY_PAGE_FINE_EUROS} €, dérogations et carte du périmètre.`,
+      `ZFE ${city.ofName} : ${banned}. Horaires, amende de ${CITY_PAGE_FINE_EUROS} €, dérogations et carte du périmètre.`,
     ),
   };
 }

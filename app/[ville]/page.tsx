@@ -66,7 +66,7 @@ export default async function CityPage({ params }: CityPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Breadcrumbs items={[{ name: 'Accueil', url: '/' }, { name: `ZFE ${city.name}`, url: `/${city.slug}` }]} />
       <h1 className="mb-2 text-2xl font-extrabold tracking-tight md:text-3xl">
-        ZFE de {city.name} : vignettes Crit&apos;Air autorisées
+        ZFE {city.ofName} : vignettes Crit&apos;Air autorisées
       </h1>
       <p className="mb-4 text-sm text-secondary">
         Règles en vigueur au {formatIsoDateFr(CITY_PAGE_BUILD_DATE)}

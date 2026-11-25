@@ -159,3 +159,18 @@ test('Footer: fuente de datos, Licence Ouverte y aviso de no afiliación', () =>
   assert.match(html, /Licence Ouverte/);
   assert.match(html, new RegExp(`n${APOSTROPHE}est pas affilié à l${APOSTROPHE}administration`));
 });
+
+test('las páginas legales tienen Open Graph propio con título, descripción, url e imagen', () => {
+  const pages = [
+    { metadata: mentionsMetadata, path: '/mentions-legales' },
+    { metadata: confidentialiteMetadata, path: '/confidentialite' },
+    { metadata: cookiesMetadata, path: '/cookies' },
+  ];
+  for (const { metadata, path } of pages) {
+    assert.equal(metadata.openGraph?.url, absoluteUrl(path));
+    assert.equal(metadata.openGraph?.title, metadata.title);
+    assert.equal(metadata.openGraph?.description, metadata.description);
+    assert.ok(Array.isArray(metadata.openGraph?.images) && metadata.openGraph.images.length > 0);
+    assert.deepEqual(metadata.robots, { index: false, follow: true });
+  }
+});

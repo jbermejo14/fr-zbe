@@ -139,3 +139,23 @@ test('cityMetadata: el año del título sale de isoDate', () => {
   const { city, areas } = cityTestAreas('lyon');
   assert.match(cityMetadata(city, areas, '2031-05-01').title, /^ZFE Lyon 2031 /);
 });
+
+const GRAND_PARIS_OF_NAME = 'du Grand Paris';
+const TITLE_SUFFIX = ' | Ododex';
+const TITLE_MAX = 60;
+
+test('ofName: cada ciudad lo tiene y Grand Paris usa « du »', () => {
+  for (const city of ZFE_CITIES) assert.match(city.ofName, /^(du|de) /, city.slug);
+  assert.equal(findCityBySlug('grand-paris')?.ofName, GRAND_PARIS_OF_NAME);
+  assert.equal(findCityBySlug('lyon')?.ofName, 'de Lyon');
+});
+
+test('ninguna frase de Grand Paris dice « de Grand Paris » y el título cabe en 60 caracteres', () => {
+  const { city, areas } = cityTestAreas('grand-paris');
+  const metadata = cityMetadata(city, areas, TODAY);
+  const faq = cityFaq(city, areas, TODAY).map((entry) => `${entry.question} ${entry.answer}`);
+  const text = [metadata.title, metadata.description, ...faq].join(' ');
+  assert.doesNotMatch(text, /de Grand Paris/);
+  assert.match(text, /ZFE du Grand Paris/);
+  assert.ok(`${metadata.title}${TITLE_SUFFIX}`.length <= TITLE_MAX, metadata.title);
+});

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { FECHA_TEXTOS_LEGALES } from './legal.ts';
 import type { Titular } from './legal.ts';
-import { absoluteUrl } from './site.ts';
+import { seoSocialImages } from './seo.ts';
+import { SITE_NAME, absoluteUrl } from './site.ts';
 
 /** Robots de las páginas legales: no se indexan, pero se siguen sus enlaces. */
 export const LEGAL_ROBOTS = { index: false, follow: true } as const;
@@ -27,12 +28,14 @@ export function legalReviewDate(isoDate: string = FECHA_TEXTOS_LEGALES): string 
   return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(isoDate));
 }
 
-/** Metadatos de una página legal: título, descripción, canonical y sin indexar. */
+/** Metadatos de una página legal: título, descripción, canonical, Open Graph propio y sin indexar. */
 export function legalMetadata(path: string, title: string, description: string): Metadata {
+  const url = absoluteUrl(path);
   return {
     title,
     description,
     robots: LEGAL_ROBOTS,
-    alternates: { canonical: absoluteUrl(path) }
+    alternates: { canonical: url },
+    openGraph: { title, description, url, siteName: SITE_NAME, locale: 'fr_FR', type: 'website', images: seoSocialImages() }
   };
 }
