@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { AdSenseScript, getAdSenseClient } from '@/components/AdSenseScript';
+import { seoSocialImages } from '@/lib/seo';
 import { getSiteUrl, SITE_NAME } from '@/lib/site';
 
 const inter = Inter({
@@ -66,9 +67,11 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: 'fr_FR',
     type: 'website',
+    images: seoSocialImages(),
   },
   twitter: {
     card: 'summary_large_image',
+    images: seoSocialImages(),
   },
   // Sin `robots` global: indexar es el valor por defecto, y un `index, follow` aquí
   // se sumaría al `noindex` que Next pone en la página 404.

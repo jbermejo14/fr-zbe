@@ -172,7 +172,7 @@ export function cityMetadata(city: ZfeCity, cityAreas: readonly ZfeArea[], isoDa
       ? "aucune vignette n'est interdite aux voitures à ce jour"
       : `les voitures sont interdites à partir ${cityPageFromComplement(thresholdToClass(rule.threshold))}`;
   return {
-    title: `ZFE ${city.name} ${isoDate.slice(0, CITY_PAGE_YEAR_LENGTH)} : Crit'Air interdits, horaires et carte`,
+    title: `ZFE ${city.name} ${isoDate.slice(0, CITY_PAGE_YEAR_LENGTH)} : Crit'Air interdits, horaires`,
     description: truncateMetaDescription(
       `ZFE de ${city.name} : ${banned}. Horaires, amende de ${CITY_PAGE_FINE_EUROS} €, dérogations et carte du périmètre.`,
     ),

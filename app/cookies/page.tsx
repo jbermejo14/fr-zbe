@@ -9,7 +9,7 @@ const URL_COOKIES_GOOGLE = 'https://policies.google.com/technologies/cookies?hl=
 export const metadata = legalMetadata(
   PATH,
   'Politique relative aux cookies',
-  `Les cookies et le stockage local utilisés par ${SITE_NAME}, et comment les gérer.`
+  `Les cookies et le stockage local utilisés par ${SITE_NAME} : thème du site et publicité, base légale, consentement et gestion depuis votre navigateur.`
 );
 
 export default function CookiesPage() {

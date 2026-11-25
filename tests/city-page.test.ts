@@ -91,7 +91,7 @@ test('cityMetadata: títulos y descripciones únicos en las 10 ciudades; descrip
 test("cityMetadata: título con ciudad y año; la descripción nombra la vignette prohibida", () => {
   const { city, areas } = cityTestAreas('lyon');
   const metadata = cityMetadata(city, areas, TODAY);
-  assert.match(metadata.title, /^ZFE Lyon \d{4} : Crit'Air interdits, horaires et carte$/);
+  assert.match(metadata.title, /^ZFE Lyon \d{4} : Crit'Air interdits, horaires$/);
   assert.match(metadata.description, /Crit'Air 3/);
 });
 

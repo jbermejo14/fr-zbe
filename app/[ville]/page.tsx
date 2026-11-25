@@ -9,6 +9,7 @@ import { CritairSummaryTable } from '@/components/CritairSummaryTable';
 import { OtherCities } from '@/components/OtherCities';
 import { SampleDataNotice } from '@/components/SampleDataNotice';
 import { cityFaq, cityMetadata } from '@/lib/city-page';
+import { seoSocialImages } from '@/lib/seo';
 import { formatIsoDateFr, todayIsoInParis } from '@/lib/format-date';
 import { SITE_NAME, absoluteUrl } from '@/lib/site';
 import { loadAiresAtBuild } from '@/lib/zfe-areas-server';
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     description,
     alternates: { canonical: url },
     robots: sampleDataRobots(AIRES_DATA_IS_SAMPLE),
-    openGraph: { title, description, url, siteName: SITE_NAME, locale: 'fr_FR', type: 'article' },
+    openGraph: { title, description, url, siteName: SITE_NAME, locale: 'fr_FR', type: 'article', images: seoSocialImages() },
   };
 }
 

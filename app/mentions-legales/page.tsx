@@ -12,7 +12,7 @@ const URL_CERTIFICAT_AIR = 'https://www.certificat-air.gouv.fr/';
 export const metadata = legalMetadata(
   PATH,
   'Mentions légales',
-  `Mentions légales de ${SITE_NAME} : éditeur, hébergeur, source des données et limites de responsabilité.`
+  `Mentions légales de ${SITE_NAME} : éditeur du site, hébergeur, source des données publiques, caractère indicatif des informations et limites de responsabilité.`
 );
 
 export default function MentionsLegalesPage() {
